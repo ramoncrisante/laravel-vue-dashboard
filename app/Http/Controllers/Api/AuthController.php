@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\RegisterRequest;
 
 
 class AuthController extends Controller
@@ -47,7 +48,7 @@ class AuthController extends Controller
                 'first_name' => $request->input('first_name'),
                 'last_name' => $request->input('last_name'),
                 'email' => $request->input('email'),
-                'password' => $request->input('password'),
+                'password' => Hash::make($request->input('password')),
             ]);
     
             return $user;
