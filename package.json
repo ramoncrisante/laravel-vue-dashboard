@@ -23,5 +23,8 @@
         "vue": "^2.6.12",
         "vue-loader": "^15.9.7",
         "vue-template-compiler": "^2.6.12"
+    },
+    "dependencies": {
+        "startbootstrap-sb-admin-2": "^4.1.4"
     }
 }
