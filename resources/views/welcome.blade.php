@@ -14,7 +14,7 @@
 
 <body>
     <div id="app">
-        <example-component></example-component>
+        <dashboard></dashboard>
     </div>
 </body>
 <script src="{{ mix('/js/app.js') }}"></script>
