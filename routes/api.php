@@ -20,5 +20,5 @@ Route::post('register', [Api\AuthController::class, 'register']);
 Route::post('forgot', [Api\ForgotController::class, 'forgot']);
 Route::post('reset', [Api\ForgotController::class, 'reset']);
 
-Route::post('user', [Api\AuthController::class, 'user'])->middleware('auth:api');
+Route::get('user', [Api\AuthController::class, 'user'])->middleware('auth:api');
 

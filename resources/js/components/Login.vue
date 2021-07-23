@@ -15,7 +15,7 @@
                     <div class="text-center">
                       <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                     </div>
-                    <form class="user">
+                    <form class="user" @submit.prevent="login">
                       <div class="form-group">
                         <input
                           type="email"
@@ -23,6 +23,7 @@
                           id="exampleInputEmail"
                           aria-describedby="emailHelp"
                           placeholder="Enter Email Address..."
+                          v-model="email"
                         />
                       </div>
                       <div class="form-group">
@@ -31,6 +32,7 @@
                           class="form-control form-control-user"
                           id="exampleInputPassword"
                           placeholder="Password"
+                          v-model="password"
                         />
                       </div>
                       <div class="form-group">
@@ -45,12 +47,7 @@
                           >
                         </div>
                       </div>
-                      <a
-                        href="index.html"
-                        class="btn btn-primary btn-user btn-block"
-                      >
-                        Login
-                      </a>
+                      <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
                     </form>
                     <hr />
                     <div class="text-center">
@@ -75,8 +72,26 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Login",
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    async login() {
+      const response = await axios.post("login", {
+        email: this.email,
+        password: this.password,
+      });
+
+      localStorage.setItem('token', response.data.token)
+    },
+  },
 };
 </script>
 

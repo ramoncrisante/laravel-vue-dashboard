@@ -8,6 +8,7 @@ require('./bootstrap');
 
 //import * as $ from './sb-admin-2.js'
 import router from './router.js'
+import './axios.js'
 window.Vue = require('vue').default;
 
 /**

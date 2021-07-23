@@ -39,7 +39,7 @@ class AuthController extends Controller
     }
 
     public function user(){
-        return Auth::user();
+        return response()->json(Auth::user());
     }
 
     public function register(RegisterRequest $request){
