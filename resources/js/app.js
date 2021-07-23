@@ -7,8 +7,9 @@
 require('./bootstrap');
 
 //import * as $ from './sb-admin-2.js'
-import router from './router.js'
-import './axios.js'
+import router from './router'
+import './axios'
+import store from './vuex'
 window.Vue = require('vue').default;
 
 /**
@@ -32,5 +33,6 @@ Vue.component('app', require('./App.vue').default);
 
 const app = new Vue({
     router,
-    el: '#app'
+    store,
+    el: '#app',
 });

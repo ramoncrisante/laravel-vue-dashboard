@@ -6,18 +6,13 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from "axios"
+import {mapGetters} from 'vuex'
 
 export default {
   name: "Home",
-  data() {
-    return {
-      user: null,
-    };
-  },
-  async created() {
-    const response = await axios.get("user");
-    this.user = response.data;
-  },
+  computed: {
+      ...mapGetters(['user'])
+    }
 };
 </script>

@@ -13,8 +13,8 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <router-link class="navbar-brand" to="/">Hidden brand</router-link>
-          <ul class="navbar-nav mt-2 mt-lg-0 ml-auto">
+          <router-link class="navbar-brand" to="/">Home</router-link>
+          <ul class="navbar-nav mt-2 mt-lg-0 ml-auto" v-if="!user">
             <li class="nav-item active">
               <router-link class="nav-link" to="/login"
                 >Login <span class="sr-only">(current)</span></router-link
@@ -24,13 +24,32 @@
               <router-link class="nav-link" to="/register">Sign Up</router-link>
             </li>
           </ul>
+          <ul class="navbar-nav mt-2 mt-lg-0 ml-auto" v-if="user">
+            <li class="nav-item active">
+              <a class="nav-link" href="javascript:void(0)" @click="logout"
+                >Logout <span class="sr-only">(current)</span></a
+              >
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
-    name: 'Nav'
+    name: 'Nav',
+    methods: {
+      logout(){
+        localStorage.removeItem('token');
+        this.$store.dispatch('user', null)
+        this.$router.push('/login');
+      }
+    },
+    computed: {
+      ...mapGetters(['user'])
+    }
 }
 </script>
