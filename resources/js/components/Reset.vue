@@ -1,0 +1,75 @@
+<template>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-10 col-lg-12 col-md-9">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-2">Reset your password</h1>
+                  </div>
+                  <form class="user" @submit.prevent="reset">
+                    <div class="form-group">
+                      <input
+                        type="password"
+                        class="form-control form-control-user"
+                        id="exampleInputPassword"
+                        placeholder="Password"
+                        v-model="password"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="password"
+                        class="form-control form-control-user"
+                        id="exampleRepeatPassword"
+                        placeholder="Repeat Password"
+                        v-model="password_confirm"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-user btn-block"
+                    >
+                      Reset Password
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import axios from "axios";
+
+export default {
+  name: "Reset",
+  data() {
+    return {
+      password: "",
+      password_confirm: "",
+    };
+  },
+  methods: {
+    async reset() {
+      const response = await axios.post("reset", {
+        password: this.password,
+        password_confirm: this.password_confirm,
+        token: this.$route.params.token,
+      });
+
+      console.log(response);
+      this.$router.push("/login");
+    },
+  },
+};
+</script>

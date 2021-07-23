@@ -74,8 +74,8 @@
                 >
               </div>
               <div class="text-center">
-                <a class="small" href="login.html"
-                  >Already have an account? Login!</a
+                <router-link class="small" to="/login"
+                  >Already have an account? Login!</router-link
                 >
               </div>
             </div>
