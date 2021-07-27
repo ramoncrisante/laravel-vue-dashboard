@@ -55,7 +55,7 @@
                   </form>
                   <hr />
                   <div class="text-center">
-                    <router-link class="small" to="/forgot"
+                    <router-link class="small" to="/forgot-password"
                       >Forgot Password?</router-link
                     >
                   </div>
@@ -87,14 +87,23 @@ export default {
   },
   methods: {
     async login() {
-      const response = await axios.post("login", {
-        email: this.email,
-        password: this.password,
-      });
+      try {
+        const response = await axios.post("login", {
+          email: this.email,
+          password: this.password,
+        });
 
-      localStorage.setItem("token", response.data.token);
-      this.$store.dispatch("user", response.data.user);
-      this.$router.push("/");
+        localStorage.setItem("token", response.data.token);
+        this.$store.dispatch("user", response.data.user);
+        this.$router.push("/");
+      } catch (error) {
+        let errorMessage = error.response.data.message || 'Invalid Email or password.';
+        let toast = this.$toasted.show(errorMessage, {
+          theme: "toasted-primary",
+          position: "top-right",
+          duration: 5000,
+        });
+      }
     },
   },
 };

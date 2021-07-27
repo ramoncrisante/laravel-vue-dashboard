@@ -15,7 +15,7 @@ export default new Router({
         {path: '/', component: Home},
         {path: '/login', component: Login},
         {path: '/register', component: Register},
-        {path: '/forgot', component: Forgot},
+        {path: '/forgot-password', component: Forgot},
         {path: '/reset/:token', component: Reset},
     ]
 })

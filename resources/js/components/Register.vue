@@ -69,8 +69,8 @@
               </form>
               <hr />
               <div class="text-center">
-                <a class="small" href="forgot-password.html"
-                  >Forgot Password?</a
+                <router-link class="small" to="/forgot-password"
+                  >Forgot Password?</router-link
                 >
               </div>
               <div class="text-center">
@@ -102,15 +102,25 @@ export default {
   },
   methods: {
     async register() {
-      await axios.post("register", {
-        first_name: this.first_name,
-        last_name: this.last_name,
-        email: this.email,
-        password: this.password,
-        password_confirm: this.password_confirm,
-      });
+      try {
+        var response = await axios.post("register", {
+          first_name: this.first_name,
+          last_name: this.last_name,
+          email: this.email,
+          password: this.password,
+          password_confirm: this.password_confirm,
+        });
 
-      this.$router.push('/login');
+
+        this.$router.push("/login");
+      } catch (error) {
+        let errorMessage = error.response.data.message || 'The given data was invalid.';
+        let toast = this.$toasted.show(errorMessage, {
+          theme: "toasted-primary",
+          position: "top-right",
+          duration: 5000,
+        });
+      }
     },
   },
 };

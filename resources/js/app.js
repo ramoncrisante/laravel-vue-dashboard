@@ -6,12 +6,13 @@
 
 require('./bootstrap');
 
-//import * as $ from './sb-admin-2.js'
 import router from './router'
 import './axios'
 import store from './vuex'
-window.Vue = require('vue').default;
+import Toasted from 'vue-toasted';
 
+window.Vue = require('vue').default;
+Vue.use(Toasted)
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
