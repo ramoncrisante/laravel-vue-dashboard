@@ -1,4 +1,6 @@
 <template>
+<div>
+  <Nav />
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-xl-10 col-lg-12 col-md-9">
@@ -46,14 +48,19 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
-import axios from "axios";
-import * as notify from "../utils/notify.js";
+import axios from "axios"
+import * as notify from "../../utils/notify.js"
+import Nav from '../../components/Nav'
 
 export default {
   name: "Reset",
+  components: {
+    Nav
+  },
   data() {
     return {
       password: "",

@@ -1,5 +1,7 @@
 <template>
-  <div class="container">
+  <div>
+    <Nav />
+    <div class="container">
     <!---- Navbar -->
     <!-- Outer Row -->
     <div class="row justify-content-center">
@@ -72,14 +74,19 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
 import axios from "axios";
-import * as notify from '../utils/notify.js'
+import Nav from '../../components/Nav'
+import * as notify from '../../utils/notify.js'
 
 export default {
   name: "Login",
+  components: {
+    Nav,
+  },
   data() {
     return {
       email: "",

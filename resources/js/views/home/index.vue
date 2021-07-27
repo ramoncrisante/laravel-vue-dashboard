@@ -1003,12 +1003,18 @@
 </template>
 
 <script>
-import sbadmin2 from "../sb-admin-2.js";
+import sbadmin2 from "../../sb-admin-2.js";
+import axios from "axios";
+import { mapGetters } from "vuex";
 
 export default {
+  name: "Home",
   mounted() {
     console.log("Component mounted.");
     sbadmin2.init();
+  },
+  computed: {
+    ...mapGetters(["user"]),
   },
 };
 </script>
