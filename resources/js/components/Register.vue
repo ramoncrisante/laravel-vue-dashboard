@@ -88,6 +88,7 @@
 
 <script>
 import axios from "axios";
+import * as notify from "../utils/notify.js";
 
 export default {
   name: "Register",
@@ -111,15 +112,15 @@ export default {
           password_confirm: this.password_confirm,
         });
 
-
-        this.$router.push("/login");
-      } catch (error) {
-        let errorMessage = error.response.data.message || 'The given data was invalid.';
-        let toast = this.$toasted.show(errorMessage, {
+        let toast = this.$toasted.show("Account created successfully", {
           theme: "toasted-primary",
           position: "top-right",
           duration: 5000,
         });
+
+        this.$router.push("/login");
+      } catch (error) {
+        notify.authError(error);
       }
     },
   },

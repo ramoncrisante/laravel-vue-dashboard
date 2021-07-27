@@ -9,7 +9,7 @@
               <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
               <div class="col-lg-6">
                 <div class="p-5">
-                  <div>
+                  <div v-if="!emailSent">
                     <div class="text-center">
                       <h1 class="h4 text-gray-900 mb-2">
                         Forgot Your Password?
@@ -46,6 +46,12 @@
                       </button>
                     </form>
                   </div>
+                  <div v-else>
+                    <span class="h4">
+                      <i class="far fa-check-circle text-success"></i> Check
+                      your email!
+                    </span>
+                  </div>
                   <hr />
                   <div class="text-center">
                     <router-link class="small" to="/register"
@@ -68,12 +74,15 @@
 </template>
 
 <script>
+import * as notify from '../utils/notify.js'
+
 export default {
   name: "Forgot",
   data() {
     return {
       email: this.email,
       isLoading: false,
+      emailSent: false,
     };
   },
   methods: {
@@ -84,13 +93,9 @@ export default {
           email: this.email,
         });
         this.isLoading = false;
+        this.emailSent = true;
       } catch (error) {
-        let errorMessage = error.response.data.message || "Invalid Email.";
-        let toast = this.$toasted.show(errorMessage, {
-          theme: "toasted-primary",
-          position: "top-right",
-          duration: 5000,
-        });
+        notify.authError(error);
         this.isLoading = false;
       }
     },

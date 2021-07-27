@@ -50,6 +50,7 @@
 
 <script>
 import axios from "axios";
+import * as notify from "../utils/notify.js";
 
 export default {
   name: "Reset",
@@ -61,14 +62,23 @@ export default {
   },
   methods: {
     async reset() {
-      const response = await axios.post("reset", {
-        password: this.password,
-        password_confirm: this.password_confirm,
-        token: this.$route.params.token,
-      });
+      try {
+        const response = await axios.post("reset", {
+          password: this.password,
+          password_confirm: this.password_confirm,
+          token: this.$route.params.token,
+        });
 
-      console.log(response);
-      this.$router.push("/login");
+        let toast = this.$toasted.show("Password updated successfully", {
+          theme: "toasted-primary",
+          position: "top-right",
+          duration: 5000,
+        });
+
+        this.$router.push("/login");
+      } catch (error) {
+        notify.authError(error);
+      }
     },
   },
 };

@@ -76,6 +76,7 @@
 
 <script>
 import axios from "axios";
+import * as notify from '../utils/notify.js'
 
 export default {
   name: "Login",
@@ -97,12 +98,7 @@ export default {
         this.$store.dispatch("user", response.data.user);
         this.$router.push("/");
       } catch (error) {
-        let errorMessage = error.response.data.message || 'Invalid Email or password.';
-        let toast = this.$toasted.show(errorMessage, {
-          theme: "toasted-primary",
-          position: "top-right",
-          duration: 5000,
-        });
+        notify.authError(error);
       }
     },
   },

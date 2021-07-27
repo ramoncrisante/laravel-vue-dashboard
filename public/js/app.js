@@ -1923,6 +1923,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_notify_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/notify.js */ "./resources/js/utils/notify.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -1998,12 +1999,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Forgot",
   data: function data() {
     return {
       email: this.email,
-      isLoading: false
+      isLoading: false,
+      emailSent: false
     };
   },
   methods: {
@@ -2011,7 +2020,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var errorMessage, toast;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -2025,18 +2033,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 4:
                 _this.isLoading = false;
+                _this.emailSent = true;
                 _context.next = 12;
                 break;
 
-              case 7:
-                _context.prev = 7;
+              case 8:
+                _context.prev = 8;
                 _context.t0 = _context["catch"](1);
-                errorMessage = _context.t0.response.data.message || "Invalid Email.";
-                toast = _this.$toasted.show(errorMessage, {
-                  theme: "toasted-primary",
-                  position: "top-right",
-                  duration: 5000
-                });
+                _utils_notify_js__WEBPACK_IMPORTED_MODULE_1__.authError(_context.t0);
                 _this.isLoading = false;
 
               case 12:
@@ -2044,7 +2048,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.stop();
             }
           }
-        }, _callee, null, [[1, 7]]);
+        }, _callee, null, [[1, 8]]);
       }))();
     }
   }
@@ -2103,6 +2107,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_notify_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/notify.js */ "./resources/js/utils/notify.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2186,6 +2191,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Login",
   data: function data() {
@@ -2199,7 +2205,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var response, errorMessage, toast;
+        var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -2219,20 +2225,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this.$router.push("/");
 
-                _context.next = 13;
+                _context.next = 12;
                 break;
 
               case 9:
                 _context.prev = 9;
                 _context.t0 = _context["catch"](0);
-                errorMessage = _context.t0.response.data.message || 'Invalid Email or password.';
-                toast = _this.$toasted.show(errorMessage, {
-                  theme: "toasted-primary",
-                  position: "top-right",
-                  duration: 5000
-                });
+                _utils_notify_js__WEBPACK_IMPORTED_MODULE_2__.authError(_context.t0);
 
-              case 13:
+              case 12:
               case "end":
                 return _context.stop();
             }
@@ -2331,6 +2332,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_notify_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/notify.js */ "./resources/js/utils/notify.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2426,6 +2428,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Register",
   data: function data() {
@@ -2442,7 +2445,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var response, errorMessage, toast;
+        var response, toast;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -2459,28 +2462,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 response = _context.sent;
+                toast = _this.$toasted.show("Account created successfully", {
+                  theme: "toasted-primary",
+                  position: "top-right",
+                  duration: 5000
+                });
 
                 _this.$router.push("/login");
 
                 _context.next = 11;
                 break;
 
-              case 7:
-                _context.prev = 7;
+              case 8:
+                _context.prev = 8;
                 _context.t0 = _context["catch"](0);
-                errorMessage = _context.t0.response.data.message || 'The given data was invalid.';
-                toast = _this.$toasted.show(errorMessage, {
-                  theme: "toasted-primary",
-                  position: "top-right",
-                  duration: 5000
-                });
+                _utils_notify_js__WEBPACK_IMPORTED_MODULE_2__.authError(_context.t0);
 
               case 11:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 7]]);
+        }, _callee, null, [[0, 8]]);
       }))();
     }
   }
@@ -2503,6 +2506,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_notify_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/notify.js */ "./resources/js/utils/notify.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2560,6 +2564,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Reset",
   data: function data() {
@@ -2573,30 +2578,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var response;
+        var response, toast;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                _context.prev = 0;
+                _context.next = 3;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default().post("reset", {
                   password: _this.password,
                   password_confirm: _this.password_confirm,
                   token: _this.$route.params.token
                 });
 
-              case 2:
+              case 3:
                 response = _context.sent;
-                console.log(response);
+                toast = _this.$toasted.show("Password updated successfully", {
+                  theme: "toasted-primary",
+                  position: "top-right",
+                  duration: 5000
+                });
 
                 _this.$router.push("/login");
 
-              case 5:
+                _context.next = 11;
+                break;
+
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](0);
+                _utils_notify_js__WEBPACK_IMPORTED_MODULE_2__.authError(_context.t0);
+
+              case 11:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee);
+        }, _callee, null, [[0, 8]]);
       }))();
     }
   }
@@ -2760,6 +2778,34 @@ vue__WEBPACK_IMPORTED_MODULE_5__.default.use(vue_router__WEBPACK_IMPORTED_MODULE
     component: _components_Reset_vue__WEBPACK_IMPORTED_MODULE_4__.default
   }]
 }));
+
+/***/ }),
+
+/***/ "./resources/js/utils/notify.js":
+/*!**************************************!*\
+  !*** ./resources/js/utils/notify.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "authError": () => (/* binding */ authError)
+/* harmony export */ });
+function authError(error) {
+  var errorMessages = [];
+  var errorMessage = error.response.data.message || "The given data was invalid.";
+  errorMessages.push(errorMessage);
+  var detailedMessages = [].concat.apply([], Object.values(error.response.data.errors));
+  errorMessages = errorMessages.concat(detailedMessages);
+  errorMessages.forEach(function (message) {
+    var toast = Vue.toasted.show(message, {
+      theme: "toasted-primary",
+      position: "top-right",
+      duration: 5000
+    });
+  });
+}
 
 /***/ }),
 
@@ -39502,80 +39548,87 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "col-lg-6" }, [
                 _c("div", { staticClass: "p-5" }, [
-                  _c("div", [
-                    _vm._m(0),
-                    _vm._v(" "),
-                    _c(
-                      "form",
-                      {
-                        staticClass: "user",
-                        on: {
-                          submit: function($event) {
-                            $event.preventDefault()
-                            return _vm.forgot.apply(null, arguments)
-                          }
-                        }
-                      },
-                      [
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.email,
-                                expression: "email"
-                              }
-                            ],
-                            staticClass: "form-control form-control-user",
-                            attrs: {
-                              type: "email",
-                              id: "exampleInputEmail",
-                              "aria-describedby": "emailHelp",
-                              placeholder: "Enter Email Address..."
-                            },
-                            domProps: { value: _vm.email },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.email = $event.target.value
-                              }
-                            }
-                          })
-                        ]),
+                  !_vm.emailSent
+                    ? _c("div", [
+                        _vm._m(0),
                         _vm._v(" "),
                         _c(
-                          "button",
+                          "form",
                           {
-                            staticClass: "btn btn-primary btn-user btn-block",
-                            attrs: { type: "submit", disabled: _vm.isLoading }
+                            staticClass: "user",
+                            on: {
+                              submit: function($event) {
+                                $event.preventDefault()
+                                return _vm.forgot.apply(null, arguments)
+                              }
+                            }
                           },
                           [
-                            !_vm.isLoading
-                              ? _c("span", [_vm._v("Reset Password")])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.isLoading
-                              ? _c(
-                                  "div",
+                            _c("div", { staticClass: "form-group" }, [
+                              _c("input", {
+                                directives: [
                                   {
-                                    staticClass: "spinner-border text-light",
-                                    attrs: { role: "status" }
-                                  },
-                                  [
-                                    _c("span", { staticClass: "sr-only" }, [
-                                      _vm._v("Loading...")
-                                    ])
-                                  ]
-                                )
-                              : _vm._e()
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.email,
+                                    expression: "email"
+                                  }
+                                ],
+                                staticClass: "form-control form-control-user",
+                                attrs: {
+                                  type: "email",
+                                  id: "exampleInputEmail",
+                                  "aria-describedby": "emailHelp",
+                                  placeholder: "Enter Email Address..."
+                                },
+                                domProps: { value: _vm.email },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.email = $event.target.value
+                                  }
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "btn btn-primary btn-user btn-block",
+                                attrs: {
+                                  type: "submit",
+                                  disabled: _vm.isLoading
+                                }
+                              },
+                              [
+                                !_vm.isLoading
+                                  ? _c("span", [_vm._v("Reset Password")])
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm.isLoading
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "spinner-border text-light",
+                                        attrs: { role: "status" }
+                                      },
+                                      [
+                                        _c("span", { staticClass: "sr-only" }, [
+                                          _vm._v("Loading...")
+                                        ])
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ]
+                            )
                           ]
                         )
-                      ]
-                    )
-                  ]),
+                      ])
+                    : _c("div", [_vm._m(1)]),
                   _vm._v(" "),
                   _c("hr"),
                   _vm._v(" "),
@@ -39630,6 +39683,15 @@ var staticRenderFns = [
           "\n                      We get it, stuff happens. Just enter your email address\n                      below and we'll send you a link to reset your password!\n                    "
         )
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "h4" }, [
+      _c("i", { staticClass: "far fa-check-circle text-success" }),
+      _vm._v(" Check\n                    your email!\n                  ")
     ])
   }
 ]
