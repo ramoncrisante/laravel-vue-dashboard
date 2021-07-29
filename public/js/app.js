@@ -2013,7 +2013,7 @@ Vue.use((vue_toasted__WEBPACK_IMPORTED_MODULE_3___default()));
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('app', __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue").default);
+Vue.component("app", __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue").default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -2023,7 +2023,7 @@ Vue.component('app', __webpack_require__(/*! ./App.vue */ "./resources/js/App.vu
 var app = new Vue({
   router: _router__WEBPACK_IMPORTED_MODULE_0__.default,
   store: _vuex__WEBPACK_IMPORTED_MODULE_2__.default,
-  el: '#app'
+  el: "#app"
 });
 
 /***/ }),
@@ -2099,40 +2099,67 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./vuex */ "./resources/js/vuex.js");
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_1__.default);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vue_router__WEBPACK_IMPORTED_MODULE_1__.default({
+
+vue__WEBPACK_IMPORTED_MODULE_1__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_2__.default);
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__.default({
   mode: "history",
   routes: [{
     path: "/",
+    name: "home",
+    meta: {
+      requiresAuth: true
+    },
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_home_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/home/index.vue */ "./resources/js/views/home/index.vue"));
     }
   }, {
     path: "/login",
+    name: "login",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_login_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/login/index.vue */ "./resources/js/views/login/index.vue"));
     }
   }, {
     path: "/register",
+    name: "register",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_register_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/register/index.vue */ "./resources/js/views/register/index.vue"));
     }
   }, {
     path: "/forgot-password",
+    name: "forgot",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_forgot_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/forgot/index.vue */ "./resources/js/views/forgot/index.vue"));
     }
   }, {
     path: "/reset/:token",
+    name: "reset",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_reset_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/reset/index.vue */ "./resources/js/views/reset/index.vue"));
     }
   }]
-}));
+});
+router.beforeEach(function (to, from, next) {
+  if (to.matched.some(function (record) {
+    return record.meta.requiresAuth;
+  })) {
+    console.log(_vuex__WEBPACK_IMPORTED_MODULE_0__.default.getters.user);
+
+    if (_vuex__WEBPACK_IMPORTED_MODULE_0__.default.getters.user) {
+      next();
+      return;
+    }
+
+    next("/login");
+  } else {
+    next();
+  }
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
 
 /***/ }),
 

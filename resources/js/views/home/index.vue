@@ -7,15 +7,15 @@
       id="accordionSidebar"
     >
       <!-- Sidebar - Brand -->
-      <a
+      <router-link
         class="sidebar-brand d-flex align-items-center justify-content-center"
-        href="index.html"
+        to="/"
       >
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
         <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-      </a>
+      </router-link>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0" />
@@ -154,24 +154,6 @@
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
-
-      <!-- Sidebar Message -->
-      <div class="sidebar-card d-none d-lg-flex">
-        <img
-          class="sidebar-card-illustration mb-2"
-          src="img/undraw_rocket.svg"
-          alt="..."
-        />
-        <p class="text-center mb-2">
-          <strong>SB Admin Pro</strong> is packed with premium features,
-          components, and more!
-        </p>
-        <a
-          class="btn btn-success btn-sm"
-          href="https://startbootstrap.com/theme/sb-admin-pro"
-          >Upgrade to Pro!</a
-        >
       </div>
     </ul>
     <!-- End of Sidebar -->
@@ -456,7 +438,7 @@
                 aria-expanded="false"
               >
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                  >Douglas McGee</span
+                  >{{ user.first_name }} {{ user.last_name }}</span
                 >
                 <img
                   class="img-profile rounded-circle"
@@ -487,7 +469,8 @@
                 <div class="dropdown-divider"></div>
                 <a
                   class="dropdown-item"
-                  href="#"
+                  href="javascript:void(0)"
+                  @click="logout"
                   data-toggle="modal"
                   data-target="#logoutModal"
                 >
@@ -1010,11 +993,17 @@ import { mapGetters } from "vuex";
 export default {
   name: "Home",
   mounted() {
-    console.log("Component mounted.");
     sbadmin2.init();
   },
   computed: {
     ...mapGetters(["user"]),
+  },
+  methods: {
+    logout() {
+      localStorage.removeItem("token");
+      this.$store.dispatch("user", null);
+      this.$router.push("/login");
+    },
   },
 };
 </script>
