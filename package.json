@@ -28,6 +28,7 @@
         "startbootstrap-sb-admin-2": "^4.1.4",
         "vue-router": "^3.5.2",
         "vue-toasted": "^1.1.28",
-        "vuex": "^3.6.2"
+        "vuex": "^3.6.2",
+        "vuex-persistedstate": "^4.0.0"
     }
 }
