@@ -11,9 +11,6 @@ let router = new Router({
         {
             path: "/",
             name: "home",
-            meta: {
-                requiresAuth: true
-            },
             component: () => import("./views/home/index.vue")
         },
         {
@@ -35,13 +32,20 @@ let router = new Router({
             path: "/reset/:token",
             name: "reset",
             component: () => import("./views/reset/index.vue")
+        },
+        {
+            path: "/admin",
+            name: "admin",
+            component: () => import("./views/admin/index.vue"),
+            meta: {
+                requiresAuth: true
+            }
         }
     ]
 });
 
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
-        console.log(store.getters.user);
         if (store.getters.user) {
             next();
             return;

@@ -2111,9 +2111,6 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__.default({
   routes: [{
     path: "/",
     name: "home",
-    meta: {
-      requiresAuth: true
-    },
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_home_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/home/index.vue */ "./resources/js/views/home/index.vue"));
     }
@@ -2141,14 +2138,21 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__.default({
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_reset_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/reset/index.vue */ "./resources/js/views/reset/index.vue"));
     }
+  }, {
+    path: "/admin",
+    name: "admin",
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_views_admin_index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/admin/index.vue */ "./resources/js/views/admin/index.vue"));
+    },
+    meta: {
+      requiresAuth: true
+    }
   }]
 });
 router.beforeEach(function (to, from, next) {
   if (to.matched.some(function (record) {
     return record.meta.requiresAuth;
   })) {
-    console.log(_vuex__WEBPACK_IMPORTED_MODULE_0__.default.getters.user);
-
     if (_vuex__WEBPACK_IMPORTED_MODULE_0__.default.getters.user) {
       next();
       return;
@@ -55361,7 +55365,7 @@ var index = {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_views_home_index_vue":1,"resources_js_views_login_index_vue":1,"resources_js_views_register_index_vue":1,"resources_js_views_forgot_index_vue":1,"resources_js_views_reset_index_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_views_home_index_vue":1,"resources_js_views_login_index_vue":1,"resources_js_views_register_index_vue":1,"resources_js_views_forgot_index_vue":1,"resources_js_views_reset_index_vue":1,"resources_js_views_admin_index_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

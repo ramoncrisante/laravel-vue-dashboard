@@ -139,7 +139,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this.$store.dispatch("user", response.data.user);
 
-                _this.$router.push("/");
+                _this.$router.push("/admin");
 
                 _context.next = 12;
                 break;
