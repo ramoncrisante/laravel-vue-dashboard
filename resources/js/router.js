@@ -2,6 +2,7 @@ import Vue from "vue";
 
 import Router from "vue-router";
 import store from "./vuex";
+import AdminLayout from "./views/admin/layout/index";
 
 Vue.use(Router);
 
@@ -36,9 +37,10 @@ let router = new Router({
         {
             path: "/admin",
             name: "admin",
-            component: () => import("./views/admin/index.vue"),
+            component: () => import("./views/admin/dashboard.vue"),
             meta: {
-                requiresAuth: true
+                requiresAuth: true,
+                layout: AdminLayout
             }
         }
     ]
