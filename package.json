@@ -25,6 +25,8 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "chart.js": "^2.9.4",
+        "datatables.net-dt": "^1.1.0",
         "startbootstrap-sb-admin-2": "^4.1.4",
         "vue-router": "^3.5.2",
         "vue-toasted": "^1.1.28",

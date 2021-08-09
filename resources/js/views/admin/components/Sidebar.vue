@@ -116,7 +116,7 @@
         >
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Other Pages:</h6>
-            <router-link class="collapse-item" to="/admin/pages/404">404 Page</router-link>
+            <router-link class="collapse-item" to="/admin/pages/page-not-found">404 Page</router-link>
             <router-link class="collapse-item" to="/admin/pages/blank">Blank Page</router-link>
           </div>
         </div>
@@ -124,17 +124,17 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <router-link class="nav-link" to="/admin/charts">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a
+          <span>Charts</span></router-link
         >
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <router-link class="nav-link" to="/admin/tables">
           <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a
+          <span>Tables</span></router-link
         >
       </li>
 

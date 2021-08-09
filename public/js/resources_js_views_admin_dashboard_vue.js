@@ -11,6 +11,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _chart_demo_chart_area_demo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../chart/demo/chart-area-demo */ "./resources/js/chart/demo/chart-area-demo.js");
+/* harmony import */ var _chart_demo_chart_pie_demo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../chart/demo/chart-pie-demo */ "./resources/js/chart/demo/chart-pie-demo.js");
 //
 //
 //
@@ -466,34 +468,203 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'Dashboard',
-  mounted: function mounted() {}
+  name: "Dashboard",
+  mounted: function mounted() {
+    (0,_chart_demo_chart_area_demo__WEBPACK_IMPORTED_MODULE_0__.default)();
+    (0,_chart_demo_chart_pie_demo__WEBPACK_IMPORTED_MODULE_1__.default)();
+  }
 });
+
+/***/ }),
+
+/***/ "./resources/js/chart/demo/chart-area-demo.js":
+/*!****************************************************!*\
+  !*** ./resources/js/chart/demo/chart-area-demo.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ chartAreaDemo)
+/* harmony export */ });
+// Set new default font family and font color to mimic Bootstrap's default styling
+function number_format(number, decimals, dec_point, thousands_sep) {
+  // *     example: number_format(1234.56, 2, ',', ' ');
+  // *     return: '1 234,56'
+  number = (number + "").replace(",", "").replace(" ", "");
+
+  var n = !isFinite(+number) ? 0 : +number,
+      prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+      sep = typeof thousands_sep === "undefined" ? "," : thousands_sep,
+      dec = typeof dec_point === "undefined" ? "." : dec_point,
+      s = "",
+      toFixedFix = function toFixedFix(n, prec) {
+    var k = Math.pow(10, prec);
+    return "" + Math.round(n * k) / k;
+  }; // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+
+
+  s = (prec ? toFixedFix(n, prec) : "" + Math.round(n)).split(".");
+
+  if (s[0].length > 3) {
+    s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+  }
+
+  if ((s[1] || "").length < prec) {
+    s[1] = s[1] || "";
+    s[1] += new Array(prec - s[1].length + 1).join("0");
+  }
+
+  return s.join(dec);
+}
+
+function chartAreaDemo() {
+  Chart.defaults.global.defaultFontFamily = "Nunito", '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+  Chart.defaults.global.defaultFontColor = "#858796"; // Area Chart Example
+
+  var ctx = document.getElementById("myAreaChart");
+  var myLineChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      datasets: [{
+        label: "Earnings",
+        lineTension: 0.3,
+        backgroundColor: "rgba(78, 115, 223, 0.05)",
+        borderColor: "rgba(78, 115, 223, 1)",
+        pointRadius: 3,
+        pointBackgroundColor: "rgba(78, 115, 223, 1)",
+        pointBorderColor: "rgba(78, 115, 223, 1)",
+        pointHoverRadius: 3,
+        pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+        pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+        pointHitRadius: 10,
+        pointBorderWidth: 2,
+        data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000]
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      layout: {
+        padding: {
+          left: 10,
+          right: 25,
+          top: 25,
+          bottom: 0
+        }
+      },
+      scales: {
+        xAxes: [{
+          time: {
+            unit: "date"
+          },
+          gridLines: {
+            display: false,
+            drawBorder: false
+          },
+          ticks: {
+            maxTicksLimit: 7
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            maxTicksLimit: 5,
+            padding: 10,
+            // Include a dollar sign in the ticks
+            callback: function callback(value, index, values) {
+              return "$" + number_format(value);
+            }
+          },
+          gridLines: {
+            color: "rgb(234, 236, 244)",
+            zeroLineColor: "rgb(234, 236, 244)",
+            drawBorder: false,
+            borderDash: [2],
+            zeroLineBorderDash: [2]
+          }
+        }]
+      },
+      legend: {
+        display: false
+      },
+      tooltips: {
+        backgroundColor: "rgb(255,255,255)",
+        bodyFontColor: "#858796",
+        titleMarginBottom: 10,
+        titleFontColor: "#6e707e",
+        titleFontSize: 14,
+        borderColor: "#dddfeb",
+        borderWidth: 1,
+        xPadding: 15,
+        yPadding: 15,
+        displayColors: false,
+        intersect: false,
+        mode: "index",
+        caretPadding: 10,
+        callbacks: {
+          label: function label(tooltipItem, chart) {
+            var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || "";
+            return datasetLabel + ": $" + number_format(tooltipItem.yLabel);
+          }
+        }
+      }
+    }
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/chart/demo/chart-pie-demo.js":
+/*!***************************************************!*\
+  !*** ./resources/js/chart/demo/chart-pie-demo.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ chartPieDemo)
+/* harmony export */ });
+function chartPieDemo() {
+  // Set new default font family and font color to mimic Bootstrap's default styling
+  Chart.defaults.global.defaultFontFamily = "Nunito", '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+  Chart.defaults.global.defaultFontColor = "#858796"; // Pie Chart Example
+
+  var ctx = document.getElementById("myPieChart");
+  var myPieChart = new Chart(ctx, {
+    type: "doughnut",
+    data: {
+      labels: ["Direct", "Referral", "Social"],
+      datasets: [{
+        data: [55, 30, 15],
+        backgroundColor: ["#4e73df", "#1cc88a", "#36b9cc"],
+        hoverBackgroundColor: ["#2e59d9", "#17a673", "#2c9faf"],
+        hoverBorderColor: "rgba(234, 236, 244, 1)"
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      tooltips: {
+        backgroundColor: "rgb(255,255,255)",
+        bodyFontColor: "#858796",
+        borderColor: "#dddfeb",
+        borderWidth: 1,
+        xPadding: 15,
+        yPadding: 15,
+        displayColors: false,
+        caretPadding: 10
+      },
+      legend: {
+        display: false
+      },
+      cutoutPercentage: 80
+    }
+  });
+}
 
 /***/ }),
 
@@ -613,7 +784,7 @@ var staticRenderFns = [
             },
             [
               _c("i", { staticClass: "fas fa-download fa-sm text-white-50" }),
-              _vm._v(" Generate\n          Report")
+              _vm._v(" Generate Report")
             ]
           )
         ]
@@ -635,11 +806,11 @@ var staticRenderFns = [
                         "div",
                         {
                           staticClass:
-                            "\n                      text-xs\n                      font-weight-bold\n                      text-primary text-uppercase\n                      mb-1\n                    "
+                            "\n                  text-xs\n                  font-weight-bold\n                  text-primary text-uppercase\n                  mb-1\n                "
                         },
                         [
                           _vm._v(
-                            "\n                    Earnings (Monthly)\n                  "
+                            "\n                Earnings (Monthly)\n              "
                           )
                         ]
                       ),
@@ -649,11 +820,7 @@ var staticRenderFns = [
                         {
                           staticClass: "h5 mb-0 font-weight-bold text-gray-800"
                         },
-                        [
-                          _vm._v(
-                            "\n                    $40,000\n                  "
-                          )
-                        ]
+                        [_vm._v("\n                $40,000\n              ")]
                       )
                     ]),
                     _vm._v(" "),
@@ -684,11 +851,11 @@ var staticRenderFns = [
                         "div",
                         {
                           staticClass:
-                            "\n                      text-xs\n                      font-weight-bold\n                      text-success text-uppercase\n                      mb-1\n                    "
+                            "\n                  text-xs\n                  font-weight-bold\n                  text-success text-uppercase\n                  mb-1\n                "
                         },
                         [
                           _vm._v(
-                            "\n                    Earnings (Annual)\n                  "
+                            "\n                Earnings (Annual)\n              "
                           )
                         ]
                       ),
@@ -698,11 +865,7 @@ var staticRenderFns = [
                         {
                           staticClass: "h5 mb-0 font-weight-bold text-gray-800"
                         },
-                        [
-                          _vm._v(
-                            "\n                    $215,000\n                  "
-                          )
-                        ]
+                        [_vm._v("\n                $215,000\n              ")]
                       )
                     ]),
                     _vm._v(" "),
@@ -733,13 +896,9 @@ var staticRenderFns = [
                         "div",
                         {
                           staticClass:
-                            "\n                      text-xs\n                      font-weight-bold\n                      text-info text-uppercase\n                      mb-1\n                    "
+                            "text-xs font-weight-bold text-info text-uppercase mb-1"
                         },
-                        [
-                          _vm._v(
-                            "\n                    Tasks\n                  "
-                          )
-                        ]
+                        [_vm._v("\n                Tasks\n              ")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -755,7 +914,7 @@ var staticRenderFns = [
                               },
                               [
                                 _vm._v(
-                                  "\n                        50%\n                      "
+                                  "\n                    50%\n                  "
                                 )
                               ]
                             )
@@ -810,11 +969,11 @@ var staticRenderFns = [
                         "div",
                         {
                           staticClass:
-                            "\n                      text-xs\n                      font-weight-bold\n                      text-warning text-uppercase\n                      mb-1\n                    "
+                            "\n                  text-xs\n                  font-weight-bold\n                  text-warning text-uppercase\n                  mb-1\n                "
                         },
                         [
                           _vm._v(
-                            "\n                    Pending Requests\n                  "
+                            "\n                Pending Requests\n              "
                           )
                         ]
                       ),
@@ -824,7 +983,7 @@ var staticRenderFns = [
                         {
                           staticClass: "h5 mb-0 font-weight-bold text-gray-800"
                         },
-                        [_vm._v("\n                    18\n                  ")]
+                        [_vm._v("18")]
                       )
                     ]),
                     _vm._v(" "),
@@ -848,11 +1007,11 @@ var staticRenderFns = [
               "div",
               {
                 staticClass:
-                  "\n                card-header\n                py-3\n                d-flex\n                flex-row\n                align-items-center\n                justify-content-between\n              "
+                  "\n            card-header\n            py-3\n            d-flex\n            flex-row\n            align-items-center\n            justify-content-between\n          "
               },
               [
                 _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-                  _vm._v("\n                Earnings Overview\n              ")
+                  _vm._v("Earnings Overview")
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "dropdown no-arrow" }, [
@@ -881,7 +1040,7 @@ var staticRenderFns = [
                     "div",
                     {
                       staticClass:
-                        "\n                    dropdown-menu dropdown-menu-right\n                    shadow\n                    animated--fade-in\n                  ",
+                        "\n                dropdown-menu dropdown-menu-right\n                shadow\n                animated--fade-in\n              ",
                       attrs: { "aria-labelledby": "dropdownMenuLink" }
                     },
                     [
@@ -928,11 +1087,11 @@ var staticRenderFns = [
               "div",
               {
                 staticClass:
-                  "\n                card-header\n                py-3\n                d-flex\n                flex-row\n                align-items-center\n                justify-content-between\n              "
+                  "\n            card-header\n            py-3\n            d-flex\n            flex-row\n            align-items-center\n            justify-content-between\n          "
               },
               [
                 _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-                  _vm._v("\n                Revenue Sources\n              ")
+                  _vm._v("Revenue Sources")
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "dropdown no-arrow" }, [
@@ -961,7 +1120,7 @@ var staticRenderFns = [
                     "div",
                     {
                       staticClass:
-                        "\n                    dropdown-menu dropdown-menu-right\n                    shadow\n                    animated--fade-in\n                  ",
+                        "\n                dropdown-menu dropdown-menu-right\n                shadow\n                animated--fade-in\n              ",
                       attrs: { "aria-labelledby": "dropdownMenuLink" }
                     },
                     [
@@ -1002,17 +1161,17 @@ var staticRenderFns = [
               _c("div", { staticClass: "mt-4 text-center small" }, [
                 _c("span", { staticClass: "mr-2" }, [
                   _c("i", { staticClass: "fas fa-circle text-primary" }),
-                  _vm._v(" Direct\n                ")
+                  _vm._v(" Direct\n            ")
                 ]),
                 _vm._v(" "),
                 _c("span", { staticClass: "mr-2" }, [
                   _c("i", { staticClass: "fas fa-circle text-success" }),
-                  _vm._v(" Social\n                ")
+                  _vm._v(" Social\n            ")
                 ]),
                 _vm._v(" "),
                 _c("span", { staticClass: "mr-2" }, [
                   _c("i", { staticClass: "fas fa-circle text-info" }),
-                  _vm._v(" Referral\n                ")
+                  _vm._v(" Referral\n            ")
                 ])
               ])
             ])
@@ -1031,7 +1190,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _c("h4", { staticClass: "small font-weight-bold" }, [
-                _vm._v("\n                Server Migration "),
+                _vm._v("\n            Server Migration "),
                 _c("span", { staticClass: "float-right" }, [_vm._v("20%")])
               ]),
               _vm._v(" "),
@@ -1049,7 +1208,7 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("h4", { staticClass: "small font-weight-bold" }, [
-                _vm._v("\n                Sales Tracking "),
+                _vm._v("\n            Sales Tracking "),
                 _c("span", { staticClass: "float-right" }, [_vm._v("40%")])
               ]),
               _vm._v(" "),
@@ -1067,7 +1226,7 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("h4", { staticClass: "small font-weight-bold" }, [
-                _vm._v("\n                Customer Database "),
+                _vm._v("\n            Customer Database "),
                 _c("span", { staticClass: "float-right" }, [_vm._v("60%")])
               ]),
               _vm._v(" "),
@@ -1085,7 +1244,7 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("h4", { staticClass: "small font-weight-bold" }, [
-                _vm._v("\n                Payout Details "),
+                _vm._v("\n            Payout Details "),
                 _c("span", { staticClass: "float-right" }, [_vm._v("80%")])
               ]),
               _vm._v(" "),
@@ -1103,7 +1262,7 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("h4", { staticClass: "small font-weight-bold" }, [
-                _vm._v("\n                Account Setup "),
+                _vm._v("\n            Account Setup "),
                 _c("span", { staticClass: "float-right" }, [
                   _vm._v("Complete!")
                 ])
@@ -1128,7 +1287,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "col-lg-6 mb-4" }, [
               _c("div", { staticClass: "card bg-primary text-white shadow" }, [
                 _c("div", { staticClass: "card-body" }, [
-                  _vm._v("\n                  Primary\n                  "),
+                  _vm._v("\n              Primary\n              "),
                   _c("div", { staticClass: "text-white-50 small" }, [
                     _vm._v("#4e73df")
                   ])
@@ -1139,7 +1298,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "col-lg-6 mb-4" }, [
               _c("div", { staticClass: "card bg-success text-white shadow" }, [
                 _c("div", { staticClass: "card-body" }, [
-                  _vm._v("\n                  Success\n                  "),
+                  _vm._v("\n              Success\n              "),
                   _c("div", { staticClass: "text-white-50 small" }, [
                     _vm._v("#1cc88a")
                   ])
@@ -1150,7 +1309,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "col-lg-6 mb-4" }, [
               _c("div", { staticClass: "card bg-info text-white shadow" }, [
                 _c("div", { staticClass: "card-body" }, [
-                  _vm._v("\n                  Info\n                  "),
+                  _vm._v("\n              Info\n              "),
                   _c("div", { staticClass: "text-white-50 small" }, [
                     _vm._v("#36b9cc")
                   ])
@@ -1161,7 +1320,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "col-lg-6 mb-4" }, [
               _c("div", { staticClass: "card bg-warning text-white shadow" }, [
                 _c("div", { staticClass: "card-body" }, [
-                  _vm._v("\n                  Warning\n                  "),
+                  _vm._v("\n              Warning\n              "),
                   _c("div", { staticClass: "text-white-50 small" }, [
                     _vm._v("#f6c23e")
                   ])
@@ -1172,7 +1331,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "col-lg-6 mb-4" }, [
               _c("div", { staticClass: "card bg-danger text-white shadow" }, [
                 _c("div", { staticClass: "card-body" }, [
-                  _vm._v("\n                  Danger\n                  "),
+                  _vm._v("\n              Danger\n              "),
                   _c("div", { staticClass: "text-white-50 small" }, [
                     _vm._v("#e74a3b")
                   ])
@@ -1186,7 +1345,7 @@ var staticRenderFns = [
                 { staticClass: "card bg-secondary text-white shadow" },
                 [
                   _c("div", { staticClass: "card-body" }, [
-                    _vm._v("\n                  Secondary\n                  "),
+                    _vm._v("\n              Secondary\n              "),
                     _c("div", { staticClass: "text-white-50 small" }, [
                       _vm._v("#858796")
                     ])
@@ -1198,7 +1357,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "col-lg-6 mb-4" }, [
               _c("div", { staticClass: "card bg-light text-black shadow" }, [
                 _c("div", { staticClass: "card-body" }, [
-                  _vm._v("\n                  Light\n                  "),
+                  _vm._v("\n              Light\n              "),
                   _c("div", { staticClass: "text-black-50 small" }, [
                     _vm._v("#f8f9fc")
                   ])
@@ -1209,7 +1368,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "col-lg-6 mb-4" }, [
               _c("div", { staticClass: "card bg-dark text-white shadow" }, [
                 _c("div", { staticClass: "card-body" }, [
-                  _vm._v("\n                  Dark\n                  "),
+                  _vm._v("\n              Dark\n              "),
                   _c("div", { staticClass: "text-white-50 small" }, [
                     _vm._v("#5a5c69")
                   ])
@@ -1223,7 +1382,7 @@ var staticRenderFns = [
           _c("div", { staticClass: "card shadow mb-4" }, [
             _c("div", { staticClass: "card-header py-3" }, [
               _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-                _vm._v("\n                Illustrations\n              ")
+                _vm._v("Illustrations")
               ])
             ]),
             _vm._v(" "),
@@ -1238,7 +1397,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("p", [
                 _vm._v(
-                  "\n                Add some quality, svg illustrations to your project courtesy\n                of\n                "
+                  "\n            Add some quality, svg illustrations to your project courtesy of\n            "
                 ),
                 _c(
                   "a",
@@ -1252,7 +1411,7 @@ var staticRenderFns = [
                   [_vm._v("unDraw")]
                 ),
                 _vm._v(
-                  ", a constantly updated collection of beautiful svg images\n                that you can use completely free and without attribution!\n              "
+                  ", a constantly updated collection of beautiful svg images that\n            you can use completely free and without attribution!\n          "
                 )
               ]),
               _vm._v(" "),
@@ -1273,20 +1432,20 @@ var staticRenderFns = [
           _c("div", { staticClass: "card shadow mb-4" }, [
             _c("div", { staticClass: "card-header py-3" }, [
               _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-                _vm._v("\n                Development Approach\n              ")
+                _vm._v("\n            Development Approach\n          ")
               ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _c("p", [
                 _vm._v(
-                  "\n                SB Admin 2 makes extensive use of Bootstrap 4 utility\n                classes in order to reduce CSS bloat and poor page\n                performance. Custom CSS classes are used to create custom\n                components and custom utility classes.\n              "
+                  "\n            SB Admin 2 makes extensive use of Bootstrap 4 utility classes in\n            order to reduce CSS bloat and poor page performance. Custom CSS\n            classes are used to create custom components and custom utility\n            classes.\n          "
                 )
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "mb-0" }, [
                 _vm._v(
-                  "\n                Before working with this theme, you should become familiar\n                with the Bootstrap framework, especially the utility\n                classes.\n              "
+                  "\n            Before working with this theme, you should become familiar with\n            the Bootstrap framework, especially the utility classes.\n          "
                 )
               ])
             ])

@@ -101,9 +101,9 @@ let router = new Router({
             }
         },
         {
-            path: "/admin/pages/404",
-            name: "404",
-            component: () => import("./views/admin/404.vue"),
+            path: "/admin/pages/page-not-found",
+            name: "page-not-found",
+            component: () => import("./views/admin/page-not-found.vue"),
             meta: {
                 requiresAuth: true,
                 layout: AdminLayout
@@ -113,6 +113,24 @@ let router = new Router({
             path: "/admin/pages/blank",
             name: "blank",
             component: () => import("./views/admin/blank.vue"),
+            meta: {
+                requiresAuth: true,
+                layout: AdminLayout
+            }
+        },
+        {
+            path: "/admin/charts",
+            name: "charts",
+            component: () => import("./views/admin/charts.vue"),
+            meta: {
+                requiresAuth: true,
+                layout: AdminLayout
+            }
+        },
+        {
+            path: "/admin/tables",
+            name: "tables",
+            component: () => import("./views/admin/tables.vue"),
             meta: {
                 requiresAuth: true,
                 layout: AdminLayout
