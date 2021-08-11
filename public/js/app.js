@@ -1954,17 +1954,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'Nav',
+  name: "Nav",
   methods: {
     logout: function logout() {
-      localStorage.removeItem('token');
-      this.$store.dispatch('user', null);
-      this.$router.push('/login');
+      localStorage.removeItem("token");
+      this.$store.dispatch("user", null);
+      this.$router.push("/login");
     }
   },
-  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(['user']))
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["user"]))
 });
 
 /***/ }),
@@ -77141,90 +77143,95 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "nav",
-    {
-      staticClass:
-        "navbar navbar-expand-lg navbar-light bg-light nav-fill w-100"
-    },
-    [
-      _c("div", { staticClass: "container" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "collapse navbar-collapse",
-            attrs: { id: "navbarTogglerDemo01" }
-          },
-          [
-            _c(
-              "router-link",
-              { staticClass: "navbar-brand", attrs: { to: "/" } },
-              [_vm._v("Home")]
-            ),
-            _vm._v(" "),
-            !_vm.user
-              ? _c("ul", { staticClass: "navbar-nav mt-2 mt-lg-0 ml-auto" }, [
-                  _c(
-                    "li",
-                    { staticClass: "nav-item active" },
-                    [
+  return _c("header", [
+    _c(
+      "nav",
+      {
+        staticClass:
+          "navbar navbar-expand-lg navbar-light bg-light nav-fill w-100"
+      },
+      [
+        _c("div", { staticClass: "container" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "collapse navbar-collapse",
+              attrs: { id: "navbarTogglerDemo01" }
+            },
+            [
+              _c(
+                "router-link",
+                { staticClass: "navbar-brand", attrs: { to: "/" } },
+                [_vm._v("Home")]
+              ),
+              _vm._v(" "),
+              !_vm.user
+                ? _c("ul", { staticClass: "navbar-nav mt-2 mt-lg-0 ml-auto" }, [
+                    _c(
+                      "li",
+                      { staticClass: "nav-item active" },
+                      [
+                        _c(
+                          "router-link",
+                          { staticClass: "nav-link", attrs: { to: "/login" } },
+                          [
+                            _vm._v("Login "),
+                            _c("span", { staticClass: "sr-only" }, [
+                              _vm._v("(current)")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      { staticClass: "nav-item" },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "nav-link",
+                            attrs: { to: "/register" }
+                          },
+                          [_vm._v("Sign Up")]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.user
+                ? _c("ul", { staticClass: "navbar-nav mt-2 mt-lg-0 ml-auto" }, [
+                    _c("li", { staticClass: "nav-item active" }, [
                       _c(
-                        "router-link",
-                        { staticClass: "nav-link", attrs: { to: "/login" } },
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { href: "javascript:void(0)" },
+                          on: { click: _vm.logout }
+                        },
                         [
-                          _vm._v("Login "),
+                          _vm._v("Logout "),
                           _c("span", { staticClass: "sr-only" }, [
                             _vm._v("(current)")
                           ])
                         ]
                       )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "li",
-                    { staticClass: "nav-item" },
-                    [
-                      _c(
-                        "router-link",
-                        { staticClass: "nav-link", attrs: { to: "/register" } },
-                        [_vm._v("Sign Up")]
-                      )
-                    ],
-                    1
-                  )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.user
-              ? _c("ul", { staticClass: "navbar-nav mt-2 mt-lg-0 ml-auto" }, [
-                  _c("li", { staticClass: "nav-item active" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { href: "javascript:void(0)" },
-                        on: { click: _vm.logout }
-                      },
-                      [
-                        _vm._v("Logout "),
-                        _c("span", { staticClass: "sr-only" }, [
-                          _vm._v("(current)")
-                        ])
-                      ]
-                    )
+                    ])
                   ])
-                ])
-              : _vm._e()
-          ],
-          1
-        )
-      ])
-    ]
-  )
+                : _vm._e()
+            ],
+            1
+          )
+        ])
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {

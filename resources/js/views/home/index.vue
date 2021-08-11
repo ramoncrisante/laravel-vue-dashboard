@@ -1,18 +1,44 @@
 <template>
   <div>
     <Nav />
-    <h1>Welcome to Laravel & Vue Sb admin</h1>
-    <router-link to="/admin"> Go to dashboard </router-link>
+    <div class="masthead">
+      <div class="text-center text-white">
+        <h1 class="py-5 home-title">
+          Welcome to Laravel 8 & Vue.js Admin Dashboard
+        </h1>
+      </div>
+    </div>
+    <div class="container">
+      <div class="text-center py-5">
+        <router-link to="/admin" class="btn btn-primary">
+          Go to dashboard <i class="fas fa-chevron-right"></i
+        ></router-link>
+      </div>
+    </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Nav from "../../components/Nav";
+import Footer from "../../components/Footer";
 
 export default {
   name: "Home",
   components: {
-    Nav
-  }
+    Nav,
+    Footer,
+  },
 };
 </script>
+
+<style>
+.home-title {
+  font-size: 4rem;
+}
+.masthead {
+  background: linear-gradient(0deg, #4e73df 0%, #36b9cc 100%);
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+</style>

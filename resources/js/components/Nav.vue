@@ -1,4 +1,5 @@
 <template>
+  <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light nav-fill w-100">
       <div class="container">
         <button
@@ -34,22 +35,23 @@
         </div>
       </div>
     </nav>
+  </header>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from "vuex";
 
 export default {
-    name: 'Nav',
-    methods: {
-      logout(){
-        localStorage.removeItem('token');
-        this.$store.dispatch('user', null)
-        this.$router.push('/login');
-      }
+  name: "Nav",
+  methods: {
+    logout() {
+      localStorage.removeItem("token");
+      this.$store.dispatch("user", null);
+      this.$router.push("/login");
     },
-    computed: {
-      ...mapGetters(['user'])
-    }
-}
+  },
+  computed: {
+    ...mapGetters(["user"]),
+  },
+};
 </script>
