@@ -1,4 +1,4 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://laravel-vue-sb-admin.app/api/";
+axios.defaults.baseURL = "/api/"; // change this if you want to use a different url for APIs
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');

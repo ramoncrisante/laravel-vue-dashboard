@@ -329,7 +329,7 @@ var render = function() {
                                 ],
                                 staticClass: "form-control form-control-user",
                                 attrs: {
-                                  type: "text",
+                                  type: "email",
                                   id: "exampleInputEmail",
                                   "aria-describedby": "emailHelp",
                                   placeholder: "Enter Email Address..."
