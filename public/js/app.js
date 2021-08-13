@@ -2764,7 +2764,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__.default({
     }
   }, {
     path: "/admin/utilities/colors",
-    name: "cards",
+    name: "colors",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_admin_colors_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/admin/colors.vue */ "./resources/js/views/admin/colors.vue"));
     },

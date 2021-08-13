@@ -66,7 +66,7 @@ let router = new Router({
         },
         {
             path: "/admin/utilities/colors",
-            name: "cards",
+            name: "colors",
             component: () => import("./views/admin/colors.vue"),
             meta: {
                 requiresAuth: true,

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
@@ -13,14 +14,14 @@ use App\Http\Requests\RegisterRequest;
 class AuthController extends Controller
 {
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
         try {
             if (Auth::attempt($request->only('email', 'password'))) {
                 /** @var User $user */
                 $user = Auth::user();
                 $token = $user->createToken('API Token')->accessToken;
-    
+
                 return response([
                     'message' => 'success',
                     'token' => $token,
@@ -29,7 +30,7 @@ class AuthController extends Controller
             }
         } catch (\Exception $e) {
             return response([
-                'message' => $e->getMessage()
+                'message' => 'Internal error, please try again later.' //$e->getMessage()
             ], 400);
         }
 
@@ -38,11 +39,13 @@ class AuthController extends Controller
         ], 401);
     }
 
-    public function user(){
+    public function user()
+    {
         return response()->json(Auth::user());
     }
 
-    public function register(RegisterRequest $request){
+    public function register(RegisterRequest $request)
+    {
         try {
             $user = User::create([
                 'first_name' => $request->input('first_name'),
@@ -50,12 +53,13 @@ class AuthController extends Controller
                 'email' => $request->input('email'),
                 'password' => Hash::make($request->input('password')),
             ]);
-    
+
             return $user;
         } catch (\Exception $e) {
             return response([
-                'message' => $e->getMessage()
+                'message' => 'Internal error, please try again later.' //$e->getMessage()
             ], 400);
         }
+        $test = 0;
     }
 }
