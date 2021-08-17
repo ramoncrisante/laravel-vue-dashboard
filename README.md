@@ -14,7 +14,7 @@
   <img src="https://user-images.githubusercontent.com/44405810/129751765-07802bb1-0e55-4311-b6ee-d90f9b2e237b.png" width="160px">
 
 
-  <h1 align="center">🎉 Laravel, Vue.js & Bootstrap 4 SPA Dashboard 🎉</h1>
+  <h1 align="center">🎉 Laravel 8, Vue.js & Bootstrap 4 SPA Dashboard 🎉</h1>
 
   <div align="center">
     <h2>An awesome SPA Admin Dashboard starter kit!</h2>
