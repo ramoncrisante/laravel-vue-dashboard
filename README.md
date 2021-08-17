@@ -11,7 +11,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  ![laravel-vue-dashboard](https://user-images.githubusercontent.com/44405810/129751765-07802bb1-0e55-4311-b6ee-d90f9b2e237b.png)
+  <img src="https://user-images.githubusercontent.com/44405810/129751765-07802bb1-0e55-4311-b6ee-d90f9b2e237b.png" width="160px">
 
 
   <h1 align="center">🎉 Laravel, Vue.js & Bootstrap 4 SPA Dashboard 🎉</h1>
@@ -129,7 +129,7 @@ Contributions are what make the open source community such an amazing place to b
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/ramoncrisante/laravel-vue-dashboard/blob/main/LICENSE.txt) for more information.
 
 
 
@@ -155,6 +155,6 @@ Project Link: [https://github.com/ramoncrisante/laravel-vue-dashboard](https://g
 [issues-shield]: https://img.shields.io/github/issues/ramoncrisante/laravel-vue-dashboard.svg?style=for-the-badge
 [issues-url]: https://github.com/ramoncrisante/laravel-vue-dashboard/issues
 [license-shield]: https://img.shields.io/github/license/ramoncrisante/laravel-vue-dashboard.svg?style=for-the-badge
-[license-url]: https://github.com/ramoncrisante/laravel-vue-dashboard/LICENSE
+[license-url]: https://github.com/ramoncrisante/laravel-vue-dashboard/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/ramoncrisante
