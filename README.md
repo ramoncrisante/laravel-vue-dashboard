@@ -69,7 +69,7 @@ The code is structured in such a way as to make it easy to modify and add new pa
 
    ```sh
     # Clone the project
-    https://github.com/ramoncrisante/laravel-vue-dashboard.git
+    git clone https://github.com/ramoncrisante/laravel-vue-dashboard.git
 
     # Enter the project directory
     cd laravel-vue-dashboard
@@ -82,6 +82,9 @@ The code is structured in such a way as to make it easy to modify and add new pa
 
     # Generate app key
     php artisan key:generate
+    
+    # Migrate database
+    php artisan migrate
 
     # Create encryption keys
     php artisan passport:install
