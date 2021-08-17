@@ -1,62 +1,160 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+
+
+<!-- PROJECT LOGO -->
+<br />
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  ![laravel-vue-dashboard](https://user-images.githubusercontent.com/44405810/129751765-07802bb1-0e55-4311-b6ee-d90f9b2e237b.png)
+
+
+  <h1 align="center">🎉 Laravel, Vue.js & Bootstrap 4 SPA Dashboard 🎉</h1>
+
+  <div align="center">
+    <h2>An awesome SPA Admin Dashboard starter kit!</h2>
+  </div>
 </p>
 
-## About Laravel
+<!-- PREVIEW -->
+## PREVIEW
+![laravel_vue_admin_dashboard_preview](https://user-images.githubusercontent.com/44405810/129740905-6cce06a4-05ca-4e73-b04f-4045c09eb4a3.gif)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+`laravel-vue-dashboard` is a Single Page Application (SPA) dashboard
+built with [Laravel 8](https://laravel.com), [Vue.js](https://vuejs.org/) and [Bootstrap 4](https://getbootstrap.com) ([SB Admin Template](https://github.com/StartBootstrap/startbootstrap-sb-admin-2)). Thanks to the combination of the power of Laravel and the speed of Vue.js it is an excellent full-stack starter-kit for enterprise applications.
+ 
+ 
+It is a starter kit, not a laravel package. It can help you to cut down your time by having an SPA dashboard with authentication system ready to use, taking advantage of [Laravel Passport](https://laravel.com/docs/8.x/passport) that uses the oauth2 authentication protocol.
+ 
+The project provides sample pages, uses the routing system of Vue.js and Vuex for maintaining the application state.<br>
+The code is structured in such a way as to make it easy to modify and add new pages, components and APIs.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+<!-- FEATURES -->
+## FEATURES
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+* Sigle page application (SPA)
+* Login, register and recovery password system
+* [Vue.js](https://vuejs.org/) and Vue Router configured with auth restricted pages
+* Ui with Bootstrap 4  and [SB Admin Template](https://github.com/StartBootstrap/startbootstrap-sb-admin-2)
+* Sample views to get started
+* Easy to add new pages and routes 
+* Notification system
 
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+### Prerequisites
+
+<ul>
+    <li>Your machine needs to be ready for the latest Laravel and Node.js.</li>
+</ul>
+
+## Installation
+
+
+   ```sh
+    # Clone the project
+    https://github.com/ramoncrisante/laravel-vue-dashboard.git
+
+    # Enter the project directory
+    cd laravel-vue-dashboard
+
+    # Copy env file and add your own database and mail credentials
+    cp .env.example .env
+
+    # Install dependency
+    composer install
+
+    # Generate app key
+    php artisan key:generate
+
+    # Create encryption keys
+    php artisan passport:install
+
+    # Install dependency with NPM
+    npm install
+
+    # Develop
+    npm run dev # or npm run watch
+
+    # Build on production
+    npm run production
+    
+    # Serving application
+    php artisan serve
+
+   ```
+
+## Built With
+
+* [Laravel 8](https://laravel.com)
+* [Vue.js](https://vuejs.org/)
+* [Vuex](https://vuex.vuejs.org/)
+* [Bootstrap 4](https://getbootstrap.com)
+* [SB Admin Template](https://github.com/StartBootstrap/startbootstrap-sb-admin-2)
+* [JQuery](https://jquery.com)
+* [Axios](https://github.com/axios/axios)
+* [Laravel Passport](https://laravel.com/docs/8.x/passport)
+
+
+
+<!-- CONTRIBUTING -->
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-## Code of Conduct
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
+<!-- LICENSE -->
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Distributed under the MIT License. See `LICENSE` for more information.
+
+
+
+<!-- CONTACT -->
+## Contact
+
+Ramon Crisante - ramon.crisante@yahoo.com
+
+Project Link: [https://github.com/ramoncrisante/laravel-vue-dashboard](https://github.com/ramoncrisante/laravel-vue-dashboard)
+
+
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/ramoncrisante/laravel-vue-dashboard.svg?style=for-the-badge
+[contributors-url]: https://github.com/ramoncrisante/laravel-vue-dashboard/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/ramoncrisante/laravel-vue-dashboard.svg?style=for-the-badge
+[forks-url]: https://github.com/ramoncrisante/laravel-vue-dashboard/network/members
+[stars-shield]: https://img.shields.io/github/stars/ramoncrisante/laravel-vue-dashboard.svg?style=for-the-badge
+[stars-url]: https://github.com/ramoncrisante/laravel-vue-dashboard/stargazers
+[issues-shield]: https://img.shields.io/github/issues/ramoncrisante/laravel-vue-dashboard.svg?style=for-the-badge
+[issues-url]: https://github.com/ramoncrisante/laravel-vue-dashboard/issues
+[license-shield]: https://img.shields.io/github/license/ramoncrisante/laravel-vue-dashboard.svg?style=for-the-badge
+[license-url]: https://github.com/ramoncrisante/laravel-vue-dashboard/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/ramoncrisante
