@@ -155,6 +155,6 @@ Project Link: [https://github.com/ramoncrisante/laravel-vue-dashboard](https://g
 [issues-shield]: https://img.shields.io/github/issues/ramoncrisante/laravel-vue-dashboard.svg?style=for-the-badge
 [issues-url]: https://github.com/ramoncrisante/laravel-vue-dashboard/issues
 [license-shield]: https://img.shields.io/github/license/ramoncrisante/laravel-vue-dashboard.svg?style=for-the-badge
-[license-url]: https://github.com/ramoncrisante/laravel-vue-dashboard/blob/master/LICENSE.txt
+[license-url]: https://github.com/ramoncrisante/laravel-vue-dashboard/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/ramoncrisante
