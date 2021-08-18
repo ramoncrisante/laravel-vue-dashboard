@@ -1,12 +1,8 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
-// Variables
-@import 'variables';
-
-// Bootstrap
-//@import '~bootstrap/scss/bootstrap';
-
+// import custom css
 @import '../css/app.css';
-@import '../css/sb-admin-2.css';
+
 @import '../css/font-awesome/css/all.css';
+@import '~startbootstrap-sb-admin-2/scss/sb-admin-2.scss';
