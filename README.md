@@ -114,6 +114,7 @@ The code is structured in such a way as to make it easy to modify and add new pa
 * [JQuery](https://jquery.com)
 * [Axios](https://github.com/axios/axios)
 * [Laravel Passport](https://laravel.com/docs/8.x/passport)
+* [Font Awesome 5](https://fontawesome.com/)
 
 
 
