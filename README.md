@@ -47,9 +47,10 @@ The code is structured in such a way as to make it easy to modify and add new pa
 ## FEATURES
 
 * Sigle page application (SPA)
+* Laravel 8
+* [Vue.js](https://vuejs.org/) + VueRouter (configured with auth restricted pages) + Vuex 
 * Login, register and recovery password system
-* [Vue.js](https://vuejs.org/) and Vue Router configured with auth restricted pages
-* Ui with Bootstrap 4  and [SB Admin Template](https://github.com/StartBootstrap/startbootstrap-sb-admin-2)
+* Ui with Bootstrap 4 and [SB Admin Template](https://github.com/StartBootstrap/startbootstrap-sb-admin-2)
 * Sample views to get started
 * Easy to add new pages and routes 
 * Notification system
