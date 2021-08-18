@@ -4,5 +4,8 @@
 // import custom css
 @import '../css/app.css';
 
-@import '../css/font-awesome/css/all.css';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~startbootstrap-sb-admin-2/scss/sb-admin-2.scss';
