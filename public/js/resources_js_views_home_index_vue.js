@@ -90,7 +90,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.home-title {\n  font-size: 4rem;\n}\n.masthead {\n  background: linear-gradient(0deg, #4e73df 0%, #36b9cc 100%);\n  padding-top: 5rem;\n  padding-bottom: 5rem;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.home-title {\n  font-size: 4rem;\n}\n.masthead {\n  background: linear-gradient(0deg, #4e73df 0%, #36b9cc 100%);\n  padding-top: 5rem;\n  padding-bottom: 5rem;\n}\n.min-vh-50 {\n    min-height: 50vh !important;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -664,15 +664,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "footer",
-      { staticClass: "footer footer-dark fixed-bottom bg-dark" },
-      [
-        _c("div", { staticClass: "container text-center py-5" }, [
-          _c("p", [_vm._v("\n      Laravel and Vue Admin Dashboard @\n    ")])
-        ])
-      ]
-    )
+    return _c("footer", { staticClass: "footer footer-dark bg-dark" }, [
+      _c("div", { staticClass: "container text-center py-5" }, [
+        _c("p", [_vm._v("\n      Laravel and Vue Admin Dashboard @\n    ")])
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -707,7 +703,7 @@ var render = function() {
       _c("div", { staticClass: "container" }, [
         _c(
           "div",
-          { staticClass: "text-center py-5" },
+          { staticClass: "text-center py-5 min-vh-50" },
           [
             _c(
               "router-link",
