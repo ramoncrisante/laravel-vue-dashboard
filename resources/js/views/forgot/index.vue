@@ -33,20 +33,10 @@
                             v-model="email"
                           />
                         </div>
-                        <button
-                          type="submit"
-                          class="btn btn-primary btn-user btn-block"
-                          :disabled="isLoading"
-                        >
-                          <span v-if="!isLoading">Reset Password</span>
-                          <div
-                            class="spinner-border text-light"
-                            role="status"
-                            v-if="isLoading"
-                          >
-                            <span class="sr-only">Loading...</span>
-                          </div>
-                        </button>
+                        <LoadingButton
+                          text="Reset password"
+                          v-bind:isLoading="isLoading"
+                        />
                       </form>
                     </div>
                     <div v-else>
@@ -79,12 +69,14 @@
 
 <script>
 import * as notify from "../../utils/notify.js";
-import Nav from '../../components/Nav'
+import Nav from "../../components/Nav";
+import LoadingButton from "../../components/LoadingButton";
 
 export default {
   name: "Forgot",
   components: {
     Nav,
+    LoadingButton,
   },
   data() {
     return {
