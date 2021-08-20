@@ -22,6 +22,12 @@ class AuthController extends Controller
                 $user = Auth::user();
                 $token = $user->createToken('API Token')->accessToken;
 
+                if (!$user->hasVerifiedEmail()) {
+                    return response([
+                        'message' => 'Email must be verified.'
+                    ], 401);
+                }
+
                 return response([
                     'message' => 'success',
                     'token' => $token,
@@ -52,7 +58,7 @@ class AuthController extends Controller
                 'last_name' => $request->input('last_name'),
                 'email' => $request->input('email'),
                 'password' => Hash::make($request->input('password')),
-            ]);
+            ])->sendEmailVerificationNotification();
 
             return $user;
         } catch (\Exception $e) {
@@ -61,5 +67,29 @@ class AuthController extends Controller
             ], 400);
         }
         $test = 0;
+    }
+
+    public function verify($userId, Request $request) {
+        if (!$request->hasValidSignature()) {
+            return response()->json(["msg" => "Invalid/Expired url provided."], 401);
+        }
+    
+        $user = User::findOrFail($userId);
+    
+        if (!$user->hasVerifiedEmail()) {
+            $user->markEmailAsVerified();
+        }
+    
+        return redirect()->to('/');
+    }
+
+    public function resend() {
+        if (auth()->user()->hasVerifiedEmail()) {
+            return response()->json(["msg" => "Email already verified."], 400);
+        }
+    
+        auth()->user()->sendEmailVerificationNotification();
+    
+        return response()->json(["msg" => "Email verification link sent on your email."]);
     }
 }

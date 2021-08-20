@@ -22,3 +22,4 @@ Route::post('reset', [Api\ForgotController::class, 'reset']);
 
 Route::get('user', [Api\AuthController::class, 'user'])->middleware('auth:api');
 
+Route::get('email/verify/{id}', [Api\AuthController::class, 'verify'])->name('verification.verify'); // Make sure to keep this as your route name

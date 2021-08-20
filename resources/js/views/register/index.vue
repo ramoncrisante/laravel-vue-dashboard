@@ -62,12 +62,10 @@
                       />
                     </div>
                   </div>
-                  <button
-                    type="submit"
-                    class="btn btn-primary btn-user btn-block"
-                  >
-                    Register Account
-                  </button>
+                  <LoadingButton
+                    text="Register Account"
+                    v-bind:isLoading="isLoading"
+                  />
                 </form>
                 <hr />
                 <div class="text-center">
@@ -92,12 +90,14 @@
 <script>
 import axios from "axios";
 import * as notify from "../../utils/notify.js";
-import Nav from '../../components/Nav'
+import Nav from "../../components/Nav";
+import LoadingButton from "../../components/LoadingButton";
 
 export default {
   name: "Register",
   components: {
     Nav,
+    LoadingButton,
   },
   data() {
     return {
@@ -106,10 +106,12 @@ export default {
       email: "",
       password: "",
       password_confirm: "",
+      isLoading: false,
     };
   },
   methods: {
     async register() {
+      this.isLoading = true;
       try {
         var response = await axios.post("register", {
           first_name: this.first_name,
@@ -124,10 +126,12 @@ export default {
           position: "top-right",
           duration: 5000,
         });
+        this.isLoading = false;
 
         this.$router.push("/login");
       } catch (error) {
         notify.authError(error);
+        this.isLoading = false;
       }
     },
   },
