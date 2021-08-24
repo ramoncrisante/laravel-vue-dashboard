@@ -34,10 +34,85 @@ let router = new Router({
             name: "reset",
             component: () => import("./views/reset/index.vue")
         },
+        /**
+         * Admin routes
+         */
         {
             path: "/admin",
             name: "admin",
             component: () => import("./views/admin/dashboard.vue"),
+            meta: {
+                requiresAuth: true,
+                layout: AdminLayout
+            }
+        },
+        {
+            path: "/admin/components/buttons",
+            name: "buttons",
+            component: () => import("./views/admin/buttons.vue"),
+            meta: {
+                requiresAuth: true,
+                layout: AdminLayout
+            }
+        },
+        {
+            path: "/admin/components/cards",
+            name: "cards",
+            component: () => import("./views/admin/cards.vue"),
+            meta: {
+                requiresAuth: true,
+                layout: AdminLayout
+            }
+        },
+        {
+            path: "/admin/utilities/colors",
+            name: "cards",
+            component: () => import("./views/admin/colors.vue"),
+            meta: {
+                requiresAuth: true,
+                layout: AdminLayout
+            }
+        },
+        {
+            path: "/admin/utilities/borders",
+            name: "borders",
+            component: () => import("./views/admin/borders.vue"),
+            meta: {
+                requiresAuth: true,
+                layout: AdminLayout
+            }
+        },
+        {
+            path: "/admin/utilities/animations",
+            name: "animations",
+            component: () => import("./views/admin/animations.vue"),
+            meta: {
+                requiresAuth: true,
+                layout: AdminLayout
+            }
+        },
+        {
+            path: "/admin/utilities/other",
+            name: "other",
+            component: () => import("./views/admin/other.vue"),
+            meta: {
+                requiresAuth: true,
+                layout: AdminLayout
+            }
+        },
+        {
+            path: "/admin/pages/404",
+            name: "404",
+            component: () => import("./views/admin/404.vue"),
+            meta: {
+                requiresAuth: true,
+                layout: AdminLayout
+            }
+        },
+        {
+            path: "/admin/pages/blank",
+            name: "blank",
+            component: () => import("./views/admin/blank.vue"),
             meta: {
                 requiresAuth: true,
                 layout: AdminLayout

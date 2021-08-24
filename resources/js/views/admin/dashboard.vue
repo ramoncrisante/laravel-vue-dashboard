@@ -482,7 +482,7 @@
 export default {
     name: 'Dashboard',
     mounted() {
-        console.log(this.$route.meta.layout);
+        
     }
 }
 </script>

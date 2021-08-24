@@ -19,9 +19,9 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <router-link class="nav-link" to="/admin">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a
+          <span>Dashboard</span></router-link
         >
       </li>
 
@@ -52,8 +52,8 @@
         >
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="buttons.html">Buttons</a>
-            <a class="collapse-item" href="cards.html">Cards</a>
+            <router-link class="collapse-item" to="/admin/components/buttons">Buttons</router-link>
+            <router-link class="collapse-item" to="/admin/components/cards">Cards</router-link>
           </div>
         </div>
       </li>
@@ -79,12 +79,12 @@
         >
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html"
-              >Animations</a
+            <router-link class="collapse-item" to="/admin/utilities/colors">Colors</router-link>
+            <router-link class="collapse-item" to="/admin/utilities/borders">Borders</router-link>
+            <router-link class="collapse-item" to="/admin/utilities/animations"
+              >Animations</router-link
             >
-            <a class="collapse-item" href="utilities-other.html">Other</a>
+            <router-link class="collapse-item" to="/admin/utilities/other">Other</router-link>
           </div>
         </div>
       </li>
@@ -115,16 +115,9 @@
           data-parent="#accordionSidebar"
         >
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="login.html">Login</a>
-            <a class="collapse-item" href="register.html">Register</a>
-            <a class="collapse-item" href="forgot-password.html"
-              >Forgot Password</a
-            >
-            <div class="collapse-divider"></div>
             <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a>
+            <router-link class="collapse-item" to="/admin/pages/404">404 Page</router-link>
+            <router-link class="collapse-item" to="/admin/pages/blank">Blank Page</router-link>
           </div>
         </div>
       </li>
