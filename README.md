@@ -34,13 +34,13 @@
 
 
 `laravel-vue-dashboard` is a Single Page Application (SPA) dashboard
-built with [Laravel 8](https://laravel.com), [Vue.js](https://vuejs.org/) and [Bootstrap 4](https://getbootstrap.com) ([SB Admin Template](https://github.com/StartBootstrap/startbootstrap-sb-admin-2)). Thanks to the combination of the power of Laravel and the speed of Vue.js it is an excellent full-stack starter-kit for enterprise applications.
+built with [Laravel 8](https://laravel.com), [Vue.js](https://vuejs.org/) and [Bootstrap 4](https://getbootstrap.com) ([SB Admin Template](https://github.com/StartBootstrap/startbootstrap-sb-admin-2)). Thanks to the combination of the power of Laravel and the speed of Vue.js it is an excellent full-stack starter kit for enterprise applications.
  
  
-It is a starter kit, not a laravel package. It can help you to cut down your time by having an SPA dashboard with authentication system ready to use, taking advantage of [Laravel Passport](https://laravel.com/docs/8.x/passport) that uses the oauth2 authentication protocol.
+It's a kit to start from scratch, not a Laravel package. It can help you to cut down your time by having an SPA dashboard with authentication system ready to use, taking advantage of [Laravel Passport](https://laravel.com/docs/8.x/passport) that uses the oauth2 authentication protocol.
  
 The project provides sample pages, uses the routing system of Vue.js and Vuex for maintaining the application state.<br>
-The code is structured in such a way as to make it easy to modify and add new pages, components and APIs.
+The code is structured in such a way to make it easy to modify and add new pages, components and APIs.
 
 
 <!-- FEATURES -->
@@ -49,7 +49,7 @@ The code is structured in such a way as to make it easy to modify and add new pa
 * Sigle page application (SPA)
 * Laravel 8
 * [Vue.js](https://vuejs.org/) + VueRouter (configured with auth restricted pages) + Vuex 
-* Login, register and recovery password system
+* Login, register, email verification and resend, recovery password systems
 * Ui with Bootstrap 4 and [SB Admin Template](https://github.com/StartBootstrap/startbootstrap-sb-admin-2)
 * Sample views to get started
 * Easy to add new pages and routes 
@@ -121,7 +121,7 @@ The code is structured in such a way as to make it easy to modify and add new pa
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -135,6 +135,7 @@ Contributions are what make the open source community such an amazing place to b
 ## License
 
 Distributed under the MIT License. See [LICENSE](https://github.com/ramoncrisante/laravel-vue-dashboard/blob/main/LICENSE.txt) for more information.
+Basically, feel free to use and re-use any way you want.
 
 
 
