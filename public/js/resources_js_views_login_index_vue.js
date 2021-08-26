@@ -102,6 +102,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -113,8 +135,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       email: "",
-      password: ""
+      password: "",
+      verificationStatus: this.$route.query.verification_status ? true : false,
+      verificationMessage: '',
+      verificationAlertClasses: {
+        'alert-success': false,
+        'alert-danger': false
+      }
     };
+  },
+  created: function created() {
+    if (this.$route.query.verification_status === "success") {
+      this.verificationMessage = "Your account has been verified. Please log in.";
+      this.verificationAlertClasses['alert-success'] = true;
+    } else if (this.$route.query.verification_status === "error") {
+      this.verificationMessage = "Your account could not be verified.";
+      this.verificationAlertClasses['alert-danger'] = true;
+    }
   },
   methods: {
     login: function login() {
@@ -289,6 +326,26 @@ var render = function() {
       _c("Nav"),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
+        _vm.verificationStatus
+          ? _c("div", { staticClass: "row justify-content-center" }, [
+              _c("div", { staticClass: "col-xl-10 col-lg-12 col-md-9" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "alert alert-dismissible fade show mt-5",
+                    class: _vm.verificationAlertClasses,
+                    attrs: { role: "alert" }
+                  },
+                  [
+                    _c("div", [_vm._v(_vm._s(_vm.verificationMessage))]),
+                    _vm._v(" "),
+                    _vm._m(0)
+                  ]
+                )
+              ])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
         _c("div", { staticClass: "row justify-content-center" }, [
           _c("div", { staticClass: "col-xl-10 col-lg-12 col-md-9" }, [
             _c(
@@ -303,7 +360,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "col-lg-6" }, [
                       _c("div", { staticClass: "p-5" }, [
-                        _vm._m(0),
+                        _vm._m(1),
                         _vm._v(" "),
                         _c(
                           "form",
@@ -374,7 +431,7 @@ var render = function() {
                               })
                             ]),
                             _vm._v(" "),
-                            _vm._m(1),
+                            _vm._m(2),
                             _vm._v(" "),
                             _c(
                               "button",
@@ -385,7 +442,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                    Login\n                  "
+                                  "\n                      Login\n                    "
                                 )
                               ]
                             )
@@ -439,6 +496,23 @@ var render = function() {
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "alert",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

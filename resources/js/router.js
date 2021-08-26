@@ -15,7 +15,7 @@ let router = new Router({
             component: () => import("./views/home/index.vue")
         },
         {
-            path: "/login",
+            path: "/login/:user_id?",
             name: "login",
             component: () => import("./views/login/index.vue")
         },
@@ -23,6 +23,12 @@ let router = new Router({
             path: "/register",
             name: "register",
             component: () => import("./views/register/index.vue")
+        },
+        {
+            path: "/verify/user/:id",
+            name: "verify",
+            props: true,
+            component: () => import("./views/verify/index.vue")
         },
         {
             path: "/forgot-password",

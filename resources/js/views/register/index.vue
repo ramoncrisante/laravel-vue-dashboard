@@ -120,15 +120,9 @@ export default {
           password: this.password,
           password_confirm: this.password_confirm,
         });
-
-        let toast = this.$toasted.show("Account created successfully", {
-          theme: "toasted-primary",
-          position: "top-right",
-          duration: 5000,
-        });
+        
         this.isLoading = false;
-
-        this.$router.push("/login");
+        this.$router.push(`/verify/user/${response.data.id}`);
       } catch (error) {
         notify.authError(error);
         this.isLoading = false;
