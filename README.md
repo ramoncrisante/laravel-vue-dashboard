@@ -49,7 +49,7 @@ The code is structured in such a way to make it easy to modify and add new pages
 * Sigle page application (SPA)
 * Laravel 8
 * [Vue.js](https://vuejs.org/) + VueRouter (configured with auth restricted pages) + Vuex 
-* Login, register, email verification and resend, recovery password systems
+* Login, register, email verification (optional) and resend, recovery password systems
 * Ui with Bootstrap 4 and [SB Admin Template](https://github.com/StartBootstrap/startbootstrap-sb-admin-2)
 * Sample views to get started
 * Easy to add new pages and routes 
@@ -103,6 +103,17 @@ The code is structured in such a way to make it easy to modify and add new pages
     php artisan serve
 
    ```
+
+## Configuration
+
+* Email verification is optional and it's disabled by default.
+  To enable it, change the following parameter in the `.env` file
+  
+  `MUST_VERIFY_EMAIL=true`
+
+* To use email verification and reset password functionality is required to set up the email service. 
+  In order to successfully send emails, we need to provide `MAIL_DRIVER`, `MAIL_HOST`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD` in the `.env` file.
+
 
 ## Built With
 
