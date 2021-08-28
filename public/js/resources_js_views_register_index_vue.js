@@ -171,7 +171,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var response;
+        var response, message, toast;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -191,7 +191,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 response = _context.sent;
                 _this.isLoading = false;
 
-                _this.$router.push("/verify/user/".concat(response.data.id));
+                if (response.data.must_verify_email) {
+                  _this.$router.push("/verify/user/".concat(response.data.id));
+                } else {
+                  message = "You account has been successfully create. Please Log in.";
+                  toast = Vue.toasted.show(message, {
+                    theme: "toasted-primary",
+                    position: "top-right",
+                    duration: 5000
+                  });
+
+                  _this.$router.push("/login");
+                }
 
                 _context.next = 13;
                 break;

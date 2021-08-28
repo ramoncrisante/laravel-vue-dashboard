@@ -21,7 +21,9 @@ class RegisterController extends Controller
                 'password' => Hash::make($request->input('password')),
             ]);
 
-            event(new Registered($user));
+            if (config('auth.must_verify_email')) {
+                event(new Registered($user));
+            }
 
             return response()->json($user);
         } catch (\Exception $e) {

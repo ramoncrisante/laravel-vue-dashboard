@@ -23,7 +23,7 @@ class AuthController extends Controller
                 $user = Auth::user();
                 $token = $user->createToken('API Token')->accessToken;
 
-                if (!$user->hasVerifiedEmail()) {
+                if (config('auth.must_verify_email') && !$user->hasVerifiedEmail()) {
                     return response([
                         'message' => 'Email must be verified.'
                     ], 401);

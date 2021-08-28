@@ -120,9 +120,21 @@ export default {
           password: this.password,
           password_confirm: this.password_confirm,
         });
-        
+
         this.isLoading = false;
-        this.$router.push(`/verify/user/${response.data.id}`);
+
+        if (response.data.must_verify_email) {
+          this.$router.push(`/verify/user/${response.data.id}`);
+        } else {
+          let message =
+            "Your account has been created successfully. Please Log in.";
+          let toast = Vue.toasted.show(message, {
+            theme: "toasted-primary",
+            position: "top-right",
+            duration: 5000,
+          });
+          this.$router.push("/login");
+        }
       } catch (error) {
         notify.authError(error);
         this.isLoading = false;

@@ -12,6 +12,7 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable, HasApiTokens;
 
+    protected $appends = ['must_verify_email'];
     /**
      * The attributes that are mass assignable.
      *
@@ -42,4 +43,14 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Determine if the user is an administrator.
+     *
+     * @return bool
+     */
+    public function getMustVerifyEmailAttribute()
+    {
+        return config('auth.must_verify_email');
+    }
 }
